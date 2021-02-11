@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}My Posts{% endblock %}
+
+{% block content %}
+<div class="container">
+<p>{% for post in posts  %}
+<div></div>
+    <div class="card" style="margin:10px">
+        <div class="card-header">{{post.user.username}}
+            <a href="{% url 'updatepost' post.pk %}">Edit</a>
+            <a href="{% url 'deletepost' post.pk %}"> Delete</a>
+        </div>
+        <div class="card-body">
+            <a href="{% url 'detailpost' post.pk %}">{{post.title}}</a><br>
+            
+            {{post.text}}
+        </div>
+        <div class="card-footer">
+            {% for comment in post.comments.all %}
+            {{comment.author}}<br>
+            {{comment.text}}<br>
+            {% endfor %}
+        </div>
+    </div>   
+{% endfor %}
+</div>
+{% endblock %}

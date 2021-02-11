@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}User Details{% endblock %}
+{% block content %}
+<div class="container">
+    <img src="{{post.img.url}}" alt="Image" class="img-fluid">
+   {{post.user.username}}
+   {{post.address}}
+</div>    
+{% endblock %}

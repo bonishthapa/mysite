@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}
+Detail
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="card" style="margin:10px">
+        <div class="card-header">
+            {{post.user.username}}
+        </div>
+        <div class="card-body">
+            <h4 class="card-title">
+            {{post.title}}</h4><br><h5>{{post.text}}</h5>
+        </div>
+        <div class="card-footer">  
+            <p class="card-text">{% for comment in post.comments.all%}
+            Author: {{comment.author}}<br>
+            Comment: {{comment.text}}
+            </p>
+            {% endfor %}
+        </div>
+    </div>
+    <form method ="POST">
+        {% csrf_token %}
+        <div class="input-group">
+            Author   {{form.author}}
+        </div>
+        <div class="input-group">
+        Comment {{form.text}}
+        </div>
+        <button class="submit">Add Comment</button>
+    </form>
+</div>
+{% endblock %}

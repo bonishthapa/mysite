@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+   {% block title %}Login{% endblock %}
+{% block content %}   
+    <!-- Login Form -->
+<div class="card">
+  <div class="card-body">
+    <form method = "POST">
+        {% csrf_token %}
+      <div class="container">
+        <input type="text"  class="fadeIn second" name="username" placeholder="login">
+      </div><p>
+      <div class="container">
+        <input type="password" class="fadeIn third" name="password" placeholder="password">
+      </div><p>
+      <div class="container">
+        <input type="submit" class="fadeIn fourth" value="Log In">
+      </div>  
+    </form>
+    <!-- Remind Passowrd -->
+    <div class="container" id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+  </div>
+</div>
+
+{% endblock %}      
